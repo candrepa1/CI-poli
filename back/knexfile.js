@@ -11,7 +11,10 @@ module.exports = {
         password: process.env.DB_PASSWORD,
       },
       migrations: {
-        directory: './migrations'
+        directory: './db/migrations'
+      },
+      seeds: {
+        directory: './db/seeds'
       }
     },
     production: {
@@ -19,6 +22,9 @@ module.exports = {
       connection: process.env.DATABASE_URL,
       migrations: {
         directory: './migrations'
+      },
+      seeds: {
+        directory: './db/seeds'
       }
     }
   };
