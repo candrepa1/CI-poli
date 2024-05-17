@@ -1,0 +1,23 @@
+services:
+  db:
+    image: postgres:14.12
+    container_name: api-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+
+  api:
+    build:
+      context: .
+      dockerfile: docker/app/Dockerfile
+    image: api-image
+    container_name: api-test
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    volumes:
+      - .:/project
