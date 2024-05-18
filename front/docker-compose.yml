@@ -1,0 +1,11 @@
+services: 
+  ui:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    image: ui-image
+    container_name: ui-test
+    ports:
+      - "3000:3000"
+    volumes: 
+      - .:/app
