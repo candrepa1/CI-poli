@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 
-const MAIN_URL = "http://localhost:3005/todos"
+const MAIN_URL = "http://localhost:8080/todos"
 
 function App() {
   const [todos, setTodos] = useState([]);
