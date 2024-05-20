@@ -1,12 +1,14 @@
+version: '3.8'
+
 services:
   db:
-    image: postgres:14.12
+    image: postgres
     container_name: api-postgres
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_USER: ${DB_USER}
       POSTGRES_DB: ${DB_NAME}
 
   api:
@@ -16,8 +18,17 @@ services:
     image: api-image
     container_name: api-test
     ports:
-      - "3000:3000"
+      - "8080:8080"
     depends_on:
       - db
     volumes:
       - .:/project
+    environment:
+      DATABASE_URL: postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}
+    command: >
+      sh -c "
+        npm run db:migrate &&
+        npm run db:seed &&
+        npm start
+      "
+
