@@ -5,9 +5,9 @@ const knexConfig = require('../knexfile');
 
 const db = knex(knexConfig.development);
 const app = express()
-const port = 3000
+const port = 8080
 
-app.use(cors());  
+app.use(cors());
 app.use(express.json());
 
 app.get('/todos', async (req, res) => {
@@ -41,6 +41,4 @@ app.put('/todos/:id', async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+app.listen(port, () => console.log(`Server has started on port: ${port}`))
