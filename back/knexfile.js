@@ -1,3 +1,4 @@
+// funcionalidad de knex para sincronizacion de codigo con base de datos
 require('dotenv').config()
 
 module.exports = {

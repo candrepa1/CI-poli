@@ -1,3 +1,5 @@
+// Indice de la aplicacion
+//Se realiza la generación de los metodos get, post y put, para la tabla todos
 const express = require('express');
 const knex = require('knex');
 const cors = require('cors');

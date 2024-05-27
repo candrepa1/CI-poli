@@ -1,3 +1,4 @@
+// funcionalidad de inserción de registro en base de datos
 exports.seed = function(knex) {
   return knex('todos').del()
     .then(function () {
