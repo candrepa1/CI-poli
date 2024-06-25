@@ -1,4 +1,4 @@
-services: 
+services:
   ui:
     build:
       context: .
@@ -7,5 +7,9 @@ services:
     container_name: ui-test
     ports:
       - "3000:3000"
-    volumes: 
+    volumes:
       - .:/app
+  jenkins:
+    image: jenkins/jenkins
+    ports:
+      - "8080:8080"
